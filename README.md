@@ -46,7 +46,7 @@ psql postgres
 ```
 
 ```sql
--- To disconnect from the postgres database
+-- Disconnect from the postgres database
 \q
 ```
 
@@ -64,7 +64,7 @@ INSERT INTO "User" (name, email)
 VALUES ('Alice', 'alice@example.com');
 ```
 
-## 5- Create a test database
+## 5- Create a test_db database
 
 ```bash
 createdb test_db
@@ -75,4 +75,11 @@ psql test_db
 
 ```sql
 SELECT * FROM "User";
+-- Disconnect from the test_db database
+\q
+```
+
+```bash
+-- Delete the test_db database
+dropdb test_db
 ```
