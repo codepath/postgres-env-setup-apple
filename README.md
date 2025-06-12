@@ -7,7 +7,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## 2- Install Postgres for Apple Silicon
+## 2- Install Postgres
 
 ```bash
 arch -arm64 brew update
@@ -36,7 +36,7 @@ brew services stop postgresql@17
 brew services restart postgresql@17
 ```
 
-## 3- Verify Postgres installation
+## 3- Verify installation
 
 ```bash
 psql --version
@@ -52,6 +52,7 @@ psql postgres
 ## 4- Create a `create_user_table.sql` file
 
 ```sql
+-- quotes around table name Prisma style
 CREATE TABLE IF NOT EXISTS "User" (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
