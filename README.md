@@ -9,15 +9,25 @@
 ## 2- Install Postgres
 
 ```bash
-brew update
-brew install postgresql@17
-# Check the "Caveats" section of the installation output:
+brew update && brew install postgresql@17
+```
+
+Check the "Caveats" section of the installation output:
+
+```bash
 echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
+Make the postgres service start on computer start:
+
 ```bash
 brew services start postgresql@17
+```
+
+Verify that the service is running:
+
+```bash
 brew services list
 ```
 
@@ -37,22 +47,30 @@ brew services restart postgresql@17
 
 ## 3- Verify installation
 
+Check versions:
+
 ```bash
 postgres --version
 psql --version
-# Connect to the postgres database
+```
+
+Connect to the postgres database:
+
+```bash
 psql postgres
 ```
 
+Disconnect from the postgres database
+
 ```sql
--- Disconnect from the postgres database
 \q
 ```
 
-## 4- Create a `create_user_table.sql` file
+## 4- Create a `create_user_table.sql` file (included in this repo)
+
+The quotes around the table name enforce case sensitivity (Prisma likes CamelCase table names):
 
 ```sql
--- Quotes around table name Prisma style
 CREATE TABLE IF NOT EXISTS "User" (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -63,22 +81,40 @@ INSERT INTO "User" (name, email)
 VALUES ('Alice', 'alice@example.com');
 ```
 
-## 5- Create a test_db database
+## 5- Create and test a postgres database
+
+Create the database:
 
 ```bash
 createdb test_db
+```
+
+Run the .sql file to create a table and some data:
+
+```bash
 psql -d test_db -f create_user_table.sql
-# Connect to the test_db database
+```
+
+Connect to the test_db database
+
+```bash
 psql test_db
 ```
 
+Run a query:
+
 ```sql
 SELECT * FROM "User";
--- Disconnect from the test_db database
+```
+
+Disconnect from the test_db database
+
+```sql
 \q
 ```
 
+Delete the test_db database:
+
 ```bash
-# Delete the test_db database
 dropdb test_db
 ```
