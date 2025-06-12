@@ -59,13 +59,13 @@ postgres --version
 psql --version
 ```
 
-Connect to the postgres database:
+Connect to the `postgres` database:
 
 ```bash
 psql postgres
 ```
 
-Disconnect from the postgres database:
+Disconnect from the `postgres` database:
 
 ```sql
 \q
