@@ -1,4 +1,4 @@
-# Postgres env setup (Apple)
+# Postgres env setup (MacOS)
 
 ## 1- Install Homebrew
 
