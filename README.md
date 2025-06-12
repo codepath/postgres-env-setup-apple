@@ -41,12 +41,12 @@ brew services restart postgresql@17
 ```bash
 postgres --version
 psql --version
-# Drop into the postgres database
+# Connect to the postgres database
 psql postgres
 ```
 
 ```sql
--- to disconnect from the postgres database
+-- To disconnect from the postgres database
 \q
 ```
 
