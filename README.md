@@ -10,8 +10,8 @@
 ## 2- Install Postgres
 
 ```bash
-arch -arm64 brew update
-arch -arm64 brew install postgresql@17
+brew update
+brew install postgresql@17
 # Check the "Caveats" section of the installation output:
 echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
@@ -23,14 +23,14 @@ brew services list
 ```
 
 ```bash
-# Do NOT do this
+# ⚠️  Do NOT do this
 # The above should work fine
 # Only in case there are PATH issues
 brew link postgresql@17 --force
 ```
 
 ```bash
-# Do NOT do this
+# ⚠️  Do NOT do this
 # It's just FYI
 brew services stop postgresql@17
 brew services restart postgresql@17
@@ -39,6 +39,7 @@ brew services restart postgresql@17
 ## 3- Verify installation
 
 ```bash
+postgres --version
 psql --version
 # Drop into the postgres database
 psql postgres
@@ -52,7 +53,7 @@ psql postgres
 ## 4- Create a `create_user_table.sql` file
 
 ```sql
--- quotes around table name Prisma style
+-- Quotes around table name Prisma style
 CREATE TABLE IF NOT EXISTS "User" (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -68,7 +69,7 @@ VALUES ('Alice', 'alice@example.com');
 ```bash
 createdb test_db
 psql -d test_db -f create_user_table.sql
-# drop into the test_db database
+# Connect to the test_db database
 psql test_db
 ```
 
