@@ -12,7 +12,7 @@
 brew update && brew install postgresql@17
 ```
 
-Check the "Caveats" section of the installation output:
+Review the "Caveats" section of the installation output, and add postgres to the PATH:
 
 ```bash
 echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
