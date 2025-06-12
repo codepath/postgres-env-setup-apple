@@ -80,6 +80,6 @@ SELECT * FROM "User";
 ```
 
 ```bash
--- Delete the test_db database
+# Delete the test_db database
 dropdb test_db
 ```
