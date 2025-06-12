@@ -65,7 +65,7 @@ Connect to the postgres database:
 psql postgres
 ```
 
-Disconnect from the postgres database
+Disconnect from the postgres database:
 
 ```sql
 \q
@@ -88,19 +88,19 @@ VALUES ('Alice', 'alice@example.com');
 
 ## 5- Create and test a postgres database
 
-Create the database:
+Create a `test_db` database:
 
 ```bash
 createdb test_db
 ```
 
-Run the .sql file to create a table and some data:
+Execute the `create_user_table.sql` file to create the "User" table and seed some data:
 
 ```bash
 psql -d test_db -f create_user_table.sql
 ```
 
-Connect to the test_db database
+Connect to the `test_db` database:
 
 ```bash
 psql test_db
@@ -112,13 +112,13 @@ Run a query:
 SELECT * FROM "User";
 ```
 
-Disconnect from the test_db database
+Disconnect from the `test_db` database:
 
 ```sql
 \q
 ```
 
-Delete the test_db database:
+Delete the `test_db` database:
 
 ```bash
 dropdb test_db
