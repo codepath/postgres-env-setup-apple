@@ -1,4 +1,4 @@
-# Postgres env setup (Apple Silicon)
+# Postgres env setup (Apple)
 
 ## 1- Install Homebrew
 
