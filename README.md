@@ -16,10 +16,15 @@ Check the "Caveats" section of the installation output:
 
 ```bash
 echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
+```
+
+Reload the terminal:
+
+```bash
 source ~/.zshrc
 ```
 
-Make the postgres service start on computer start:
+Make the postgres service begin on startup:
 
 ```bash
 brew services start postgresql@17
