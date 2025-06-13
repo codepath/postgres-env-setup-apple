@@ -2,11 +2,11 @@
 
 ## 1- Install [Homebrew](https://brew.sh/)
 
-(If you haven't already!)
+- 1.1- If you don't have Homebrew already installed:
 
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
 ## 2- Install Postgres
 
