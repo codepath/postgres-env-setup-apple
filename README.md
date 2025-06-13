@@ -1,6 +1,6 @@
-# Postgres env setup (MacOS)
+# Postgres env setup for MacOS and Homebrew
 
-## 1- Install Homebrew
+## 1- Install [Homebrew](https://brew.sh/)
 
 (If you haven't already!)
 
@@ -133,3 +133,11 @@
     ```
 
     (Alternatively, delete the `test_db` database using [PgAdmin4](https://formulae.brew.sh/cask/pgadmin4).)
+
+## 6- Install [PgAdmin4](https://formulae.brew.sh/cask/pgadmin4)
+
+- 6.1- Use Homebrew to install PgAdmin4:
+
+    ```bash
+    brew install --cask pgadmin4
+    ```
