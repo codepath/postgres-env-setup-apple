@@ -58,24 +58,24 @@
 
 ## 3- Verify installation
 
-Check versions:
+- 3.1- Check versions:
 
-```bash
-postgres --version
-psql --version
-```
+    ```bash
+    postgres --version
+    psql --version
+    ```
 
-Connect to the `postgres` database:
+- 3.2- Connect to the `postgres` database:
 
-```bash
-psql postgres
-```
+    ```bash
+    psql postgres
+    ```
 
-Disconnect from the `postgres` database:
+- 3.3- Disconnect from the `postgres` database:
 
-```sql
-\q
-```
+    ```sql
+    \q
+    ```
 
 ## 4- Create a `create_user_table.sql` file (included in this repo)
 
