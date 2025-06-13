@@ -40,7 +40,7 @@
     brew services list
     ```
 
-- 2.6- Extras:
+- 2.6- Extras (Do NOT do this):
 
     ```bash
     # ⚠️  Do NOT do this
