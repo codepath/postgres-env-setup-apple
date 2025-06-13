@@ -2,53 +2,59 @@
 
 ## 1- Install Homebrew
 
+(If you haven't already!)
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ## 2- Install Postgres
 
-```bash
-brew update && brew install postgresql@17
-```
+- 2.1- Use Homebrew to install Postgres:
 
-Review the "Caveats" section of the installation output, and add postgres to the PATH:
+    ```bash
+    brew update && brew install postgresql@17
+    ```
 
-```bash
-echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
-```
+- 2.2- Review the "Caveats" section of the installation output, and add Postgres to the PATH:
 
-Reload the terminal:
+    ```bash
+    echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
+    ```
 
-```bash
-source ~/.zshrc
-```
+- 2.3- Reload the Terminal:
 
-Make the postgres service begin on startup:
+    ```bash
+    source ~/.zshrc
+    ```
 
-```bash
-brew services start postgresql@17
-```
+- 2.4- Start the Postgres service on every computer startup:
 
-Verify that the service is running:
+    ```bash
+    brew services start postgresql@17
+    ```
 
-```bash
-brew services list
-```
+- 2.5- Verify that the service is running:
 
-```bash
-# ⚠️  Do NOT do this
-# The above should work fine
-# Only in case there are PATH issues
-brew link postgresql@17 --force
-```
+    ```bash
+    brew services list
+    ```
 
-```bash
-# ⚠️  Do NOT do this
-# It's just FYI
-brew services stop postgresql@17
-brew services restart postgresql@17
-```
+- 2.6- Extras:
+
+    ```bash
+    # ⚠️  Do NOT do this
+    # The above should work fine
+    # Only in case there are PATH issues
+    brew link postgresql@17 --force
+    ```
+
+    ```bash
+    # ⚠️  Do NOT do this
+    # It's just FYI
+    brew services stop postgresql@17
+    brew services restart postgresql@17
+    ```
 
 ## 3- Verify installation
 
@@ -73,53 +79,57 @@ Disconnect from the `postgres` database:
 
 ## 4- Create a `create_user_table.sql` file (included in this repo)
 
-The quotes around the table name enforce case sensitivity (Prisma likes CamelCase table names):
+- 4.1- The quotes around the table name enforce case sensitivity (Prisma likes CamelCase table names):
 
-```sql
-CREATE TABLE IF NOT EXISTS "User" (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-INSERT INTO "User" (name, email)
-VALUES ('Alice', 'alice@example.com');
-```
+    ```sql
+    CREATE TABLE IF NOT EXISTS "User" (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW()
+    );
+    INSERT INTO "User" (name, email)
+    VALUES ('Alice', 'alice@example.com');
+    ```
 
 ## 5- Create and test a postgres database
 
-Create a `test_db` database:
+- 5.1- Create a `test_db` database:
 
-```bash
-createdb test_db
-```
+    ```bash
+    createdb test_db
+    ```
 
-Execute the `create_user_table.sql` file to create the "User" table and seed some data:
+    (Alternatively, create a `test_db` database using [PgAdmin4](https://formulae.brew.sh/cask/pgadmin4).)
 
-```bash
-psql -d test_db -f create_user_table.sql
-```
+- 5.2- Execute the `create_user_table.sql` file to create the "User" table and seed some data:
 
-Connect to the `test_db` database:
+    ```bash
+    psql -d test_db -f create_user_table.sql
+    ```
 
-```bash
-psql test_db
-```
+- 5.3- Connect to the `test_db` database:
 
-Run a query:
+    ```bash
+    psql test_db
+    ```
 
-```sql
-SELECT * FROM "User";
-```
+- 5.4- Run a query:
 
-Disconnect from the `test_db` database:
+    ```sql
+    SELECT * FROM "User";
+    ```
 
-```sql
-\q
-```
+- 5.5- Disconnect from the `test_db` database:
 
-Delete the `test_db` database:
+    ```sql
+    \q
+    ```
 
-```bash
-dropdb test_db
-```
+- 5.6- Delete the `test_db` database:
+
+    ```bash
+    dropdb test_db
+    ```
+
+    (Alternatively, delete the `test_db` database using [PgAdmin4](https://formulae.brew.sh/cask/pgadmin4).)
